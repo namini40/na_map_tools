@@ -1,0 +1,22 @@
+PODS:
+  - FlutterMacOS (1.0.0)
+  - na_map_tools (0.0.1):
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - FlutterMacOS (from `Flutter/ephemeral`)
+  - na_map_tools (from `Flutter/ephemeral/.symlinks/plugins/na_map_tools/macos`)
+
+EXTERNAL SOURCES:
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+  na_map_tools:
+    :path: Flutter/ephemeral/.symlinks/plugins/na_map_tools/macos
+
+SPEC CHECKSUMS:
+  FlutterMacOS: 57701585bf7de1b3fc2bb61f6378d73bbdea8424
+  na_map_tools: 83001b0596ed31818f875621b81be42e82dde285
+
+PODFILE CHECKSUM: 6eac6b3292e5142cfc23bdeb71848a40ec51c14c
+
+COCOAPODS: 1.10.1

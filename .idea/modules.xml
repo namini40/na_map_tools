@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/na_map_tools.iml" filepath="$PROJECT_DIR$/na_map_tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/na_map_tools_android.iml" filepath="$PROJECT_DIR$/android/na_map_tools_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/android/na_map_tools_example_android.iml" filepath="$PROJECT_DIR$/example/android/na_map_tools_example_android.iml" />
+    </modules>
+  </component>
+</project>
