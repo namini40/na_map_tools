@@ -3,15 +3,15 @@ created by Nasser Amini ,July 2021
 gmail  : namini40@gmail.com
 github : https://github.com/namini40
 twitter: https://twitter.com/na3r_amini
-youtube: https://www.youtube.com/c/NasserAmini
  */
 
 import 'dart:convert';
-import 'package:na_map_tools/data.dart';
 import 'dart:math';
 
+import 'package:na_map_tools/data.dart';
+
 part 'cities.dart';
-part 'Geolocation.dart';
+part 'geolocation.dart';
 
 class NaMapTools {
   NaMapTools() {
@@ -21,20 +21,20 @@ class NaMapTools {
   List<City> cityList = [];
 
   _readData() {
-    this.cityList = cityFromJson(data);
+    cityList = cityFromJson(data);
   }
 
   City findClosestCity(GeoLocation geoLocation) {
     double minDist = double.maxFinite;
     int indexOfMin = 0;
-    for (int i = 0; i < this.cityList.length; i++) {
-      double dist = geoLocation.euclideanDistance(this.cityList[i].geoLocation);
+    for (int i = 0; i < cityList.length; i++) {
+      double dist = geoLocation.euclideanDistance(cityList[i].geoLocation);
       if (dist <= minDist) {
         minDist = dist;
         indexOfMin = i;
       }
     }
 
-    return this.cityList[indexOfMin];
+    return cityList[indexOfMin];
   }
 }

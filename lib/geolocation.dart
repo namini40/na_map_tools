@@ -8,8 +8,8 @@ class GeoLocation {
   GeoLocation({this.latitude, this.longitude, this.name});
 
   double euclideanDistance(GeoLocation from) {
-    return sqrt(pow(this.latitude! - from.latitude!, 2) +
-        pow(this.longitude! - from.longitude!, 2));
+    return sqrt(pow(latitude! - from.latitude!, 2) +
+        pow(longitude! - from.longitude!, 2));
   }
 
   @override
@@ -19,10 +19,10 @@ class GeoLocation {
 
   @override
   bool operator ==(dynamic other) {
-    if (latitude == null || longitude == null)
+    if (latitude == null || longitude == null) {
       return false;
-    else
-      return this.latitude == other.latitude &&
-          this.longitude == other.longitude;
+    } else {
+      return latitude == other.latitude && longitude == other.longitude;
+    }
   }
 }
