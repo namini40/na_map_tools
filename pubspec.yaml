@@ -1,6 +1,6 @@
 name: na_map_tools
 description: a tool for working with location and map data (special features for IRAN)
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/namini40/NaMapTools
 
 environment:
