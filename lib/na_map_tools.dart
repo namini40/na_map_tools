@@ -11,7 +11,7 @@ import 'dart:math';
 import 'package:na_map_tools/data.dart';
 
 part 'cities.dart';
-part 'geolocation.dart';
+part 'na_location.dart';
 
 class NaMapTools {
   NaMapTools() {
@@ -24,7 +24,7 @@ class NaMapTools {
     cityList = cityFromJson(data);
   }
 
-  City findClosestCity(GeoLocation geoLocation) {
+  City findClosestCity(NaLocation geoLocation) {
     double minDist = double.maxFinite;
     int indexOfMin = 0;
     for (int i = 0; i < cityList.length; i++) {

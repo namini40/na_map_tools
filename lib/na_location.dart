@@ -1,13 +1,13 @@
 part of 'na_map_tools.dart';
 
-class GeoLocation {
+class NaLocation {
   double? latitude;
   double? longitude;
   String? name;
 
-  GeoLocation({this.latitude, this.longitude, this.name});
+  NaLocation({this.latitude, this.longitude, this.name});
 
-  double euclideanDistance(GeoLocation from) {
+  double euclideanDistance(NaLocation from) {
     return sqrt(pow(latitude! - from.latitude!, 2) +
         pow(longitude! - from.longitude!, 2));
   }
