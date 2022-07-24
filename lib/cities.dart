@@ -2,7 +2,9 @@
 //
 //     final city = cityFromJson(jsonString);
 
-part of 'na_map_tools.dart';
+import 'dart:convert';
+
+import 'namaptools_lib.dart';
 
 List<City> cityFromJson(String str) =>
     List<City>.from(json.decode(str).map((x) => City.fromJson(x)));

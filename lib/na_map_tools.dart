@@ -5,13 +5,7 @@ github : https://github.com/namini40
 twitter: https://twitter.com/na3r_amini
  */
 
-import 'dart:convert';
-import 'dart:math';
-
-import 'package:na_map_tools/data.dart';
-
-part 'cities.dart';
-part 'na_location.dart';
+import 'package:na_map_tools/namaptools_lib.dart';
 
 class NaMapTools {
   NaMapTools() {

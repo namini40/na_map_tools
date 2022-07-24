@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:na_map_tools/na_map_tools.dart';
+import 'package:na_map_tools/namaptools_lib.dart';
 
 void main() {
   runApp(MyApp());

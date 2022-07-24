@@ -1,4 +1,4 @@
-part of 'na_map_tools.dart';
+import 'dart:math';
 
 class NaLocation {
   double? latitude;
