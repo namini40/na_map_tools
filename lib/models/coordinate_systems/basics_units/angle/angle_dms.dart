@@ -41,4 +41,16 @@ class AngleDMS extends Angle {
   AngleRadian _toRadian() {
     return _toDegree().toRadian();
   }
+
+  @override
+  Angle operator +(Angle other) {
+    // TODO: implement +
+    throw UnimplementedError();
+  }
+
+  @override
+  Angle operator -(Angle other) {
+    // TODO: implement -
+    throw UnimplementedError();
+  }
 }

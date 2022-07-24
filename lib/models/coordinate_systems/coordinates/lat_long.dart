@@ -1,12 +1,17 @@
-import '../coordinate_system_files.dart';
+import 'package:na_map_tools/models/coordinate_systems/coordinate_system_files.dart';
 
 class LatLong extends CoordinateHelper {
-  late Angle latitude_;
-  late Angle longitude_;
+  late Angle latitude;
+  late Angle longitude;
 
-  LatLong(double latitude, double longitude) {
-    latitude_ = AngleDegree(latitude);
-    longitude_ = AngleDegree(longitude);
+  LatLong(double latitude_, double longitude_) {
+    latitude = AngleDegree(latitude_);
+    longitude = AngleDegree(longitude_);
+  }
+
+  LatLong.fromLatLong(LatLong latLong) {
+    latitude = latLong.latitude;
+    longitude = latLong.longitude;
   }
 
   LatLong.fromLatitudeLongitude(

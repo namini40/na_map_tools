@@ -41,4 +41,16 @@ class AngleRadian extends Angle {
     var degree = value * 180.0 / pi;
     return AngleDegree(degree);
   }
+
+  @override
+  Angle operator +(Angle other) {
+    // TODO: implement +
+    throw UnimplementedError();
+  }
+
+  @override
+  Angle operator -(Angle other) {
+    // TODO: implement -
+    throw UnimplementedError();
+  }
 }

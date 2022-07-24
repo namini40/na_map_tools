@@ -1,36 +1,53 @@
 import '../../coordinate_system_files.dart';
 
 class Distance extends Unit {
-  late double _value;
+  late double value;
   DistanceTypes _type = DistanceTypes.m;
 
-  double to(DistanceTypes type) {
+  Distance to(DistanceTypes type_) {
     double? current = ConstantValues.Meter2TypeConvertTable[_type];
-    double? dest = ConstantValues.Meter2TypeConvertTable[type];
-    value = value * current! * dest!;
-    return value;
+    double? dest = ConstantValues.Meter2TypeConvertTable[type_];
+    return Distance.withType(value * current! * dest!, type_);
   }
 
   Distance(double value) {
     Distance.withType(value, DistanceTypes.m);
   }
-  Distance.withType(double value, DistanceTypes type) {
-    _value = value;
+
+  Distance.zero() {
+    Distance(0.0);
+  }
+
+  Distance.withType(double value_, DistanceTypes type) {
+    value = value_;
     _type = type;
   }
 
   DistanceTypes get type => _type;
 
   set type(DistanceTypes type) {
-    value = to(type);
+    value = to(type).value;
     _type = type;
   }
 
-  double get value => _value;
-
-  set value(double value) {
-    _value = value;
+  Distance operator +(Distance other) {
+    return Distance.withType(value + other.to(_type).value, _type);
   }
+
+  Distance operator -(Distance other) {
+    return Distance.withType(value - other.to(_type).value, _type);
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Distance &&
+          runtimeType == other.runtimeType &&
+          value == other.value &&
+          _type == other._type;
+
+  @override
+  int get hashCode => value.hashCode ^ _type.hashCode;
 }
 
 enum DistanceTypes { cm, m, km, mile, foot, yard, inch }

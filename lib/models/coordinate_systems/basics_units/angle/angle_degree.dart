@@ -53,4 +53,16 @@ class AngleDegree extends Angle {
   AngleRadian toRadian() {
     return _toRadian();
   }
+
+  @override
+  Angle operator +(Angle other) {
+    // TODO: implement +
+    throw UnimplementedError();
+  }
+
+  @override
+  Angle operator -(Angle other) {
+    // TODO: implement -
+    throw UnimplementedError();
+  }
 }
