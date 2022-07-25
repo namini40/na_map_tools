@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:na_map_tools/na_map_tools.dart';
+import 'package:na_map_tools/namaptools_lib.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: Text(
-              'closest city:${naMapTools.findClosestCity(GeoLocation(longitude: 34.0, latitude: 52.0)).geoLocation.toString()} '),
+              'closest city:${naMapTools.findClosestCity(NaLocation(longitude: 34.0, latitude: 52.0)).geoLocation.toString()} '),
         ),
       ),
     );
