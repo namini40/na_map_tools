@@ -44,13 +44,13 @@ class AngleDMS extends Angle {
 
   @override
   Angle operator +(Angle other) {
-    // TODO: implement +
-    throw UnimplementedError();
+    final degSum = toDegree() + other.toDegree();
+    return degSum.toDMS();
   }
 
   @override
   Angle operator -(Angle other) {
-    // TODO: implement -
-    throw UnimplementedError();
+    final degMinus = toDegree() - other.toDegree();
+    return degMinus.toDMS();
   }
 }

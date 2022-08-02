@@ -4,6 +4,7 @@ import '../../coordinate_system_files.dart';
 
 class AngleDegree extends Angle {
   late double value;
+  static const maxValue = 360.0;
 
   AngleDegree(double degree) {
     value = degree;
@@ -56,13 +57,26 @@ class AngleDegree extends Angle {
 
   @override
   Angle operator +(Angle other) {
-    // TODO: implement +
-    throw UnimplementedError();
+    final angleMain = this;
+    final angleOther = other.toDegree();
+    angleMain.value = angleOther.value + angleMain.value;
+    if (angleMain.value > maxValue) {
+      angleMain.value %= maxValue;
+    }
+    return angleMain;
   }
 
   @override
   Angle operator -(Angle other) {
-    // TODO: implement -
-    throw UnimplementedError();
+    final angleMain = this;
+    final angleOther = other.toDegree();
+    angleMain.value = angleOther.value - angleMain.value;
+    if (angleMain.value > maxValue) {
+      angleMain.value %= maxValue;
+    }
+    while (angleMain.value < 0) {
+      angleMain.value += maxValue;
+    }
+    return angleMain;
   }
 }

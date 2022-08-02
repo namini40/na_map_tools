@@ -44,13 +44,13 @@ class AngleRadian extends Angle {
 
   @override
   Angle operator +(Angle other) {
-    // TODO: implement +
-    throw UnimplementedError();
+    final degSum = toDegree() + other.toDegree();
+    return degSum.toRadian();
   }
 
   @override
   Angle operator -(Angle other) {
-    // TODO: implement -
-    throw UnimplementedError();
+    final degMinus = toDegree() - other.toDegree();
+    return degMinus.toRadian();
   }
 }
