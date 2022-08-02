@@ -1,4 +1,6 @@
 ## 0.0.3
+* new concepts added
+* tests added
 * code clean up
 
 ## 0.0.2

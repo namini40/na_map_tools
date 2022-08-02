@@ -8,9 +8,10 @@ class UTM extends CoordinateSystem {
   late Distance N;
   late Distance E;
 
-  UTM(double N_, double E_) {
+  UTM({required double N_, required double E_, required int zone_}) {
     N = Distance(N_);
     E = Distance(E_);
+    zone = zone_;
   }
 
   @override
