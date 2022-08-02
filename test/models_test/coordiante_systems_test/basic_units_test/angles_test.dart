@@ -8,6 +8,18 @@ void main() {
   double dmsRawSecond = 45.2;
   double radianRaw = 2.124587;
 
+  test('zero constructor', () {
+    final degreeZero = AngleDegree.zero();
+    final dmsZero = AngleDMS.zero();
+    final radianZero = AngleRadian.zero();
+
+    expect(degreeZero.value, 0.0);
+    expect(dmsZero.degree, 0);
+    expect(dmsZero.minute, 0);
+    expect(dmsZero.second, 0.0);
+    expect(radianZero.value, 0.0);
+  });
+
   group('testing Angle Units: object creation and APIs', () {
     final deg = AngleDegree(degreeRaw);
     final dms = AngleDMS(dmsRawDeg, dmsRawMinute, dmsRawSecond);
