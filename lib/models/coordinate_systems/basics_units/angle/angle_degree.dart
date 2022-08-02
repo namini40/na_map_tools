@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:na_map_tools/models/constants.dart';
+
 import '../../coordinate_system_files.dart';
 
 class AngleDegree extends Angle {
@@ -21,9 +23,9 @@ class AngleDegree extends Angle {
   AngleDMS _toDMS() {
     var dms = AngleDMS.zero();
     dms.degree = value.floor();
-    double part = (value - dms.degree) / 60.0;
+    double part = (value - dms.degree) * 60.0;
     dms.minute = part.floor();
-    part = (value - dms.degree - dms.minute * 60.0) / 60.0;
+    part = (value - dms.degree - dms.minute / 60.0) * 3600.0;
     dms.second = part;
     return dms;
   }
@@ -90,7 +92,8 @@ class AngleDegree extends Angle {
       identical(this, other) ||
       other is AngleDegree &&
           runtimeType == other.runtimeType &&
-          value == other.value;
+          value.toStringAsPrecision(anglePrecisionComparison) ==
+              other.value.toStringAsPrecision(anglePrecisionComparison);
 
   @override
   int get hashCode => value.hashCode;

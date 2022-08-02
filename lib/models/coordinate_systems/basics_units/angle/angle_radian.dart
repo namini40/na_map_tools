@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:na_map_tools/models/constants.dart';
+
 import '../../coordinate_system_files.dart';
 
 class AngleRadian extends Angle {
@@ -64,7 +66,8 @@ class AngleRadian extends Angle {
       identical(this, other) ||
       other is AngleRadian &&
           runtimeType == other.runtimeType &&
-          value == other.value;
+          value.toStringAsFixed(anglePrecisionComparison) ==
+              other.value.toStringAsFixed(anglePrecisionComparison);
 
   @override
   int get hashCode => value.hashCode;

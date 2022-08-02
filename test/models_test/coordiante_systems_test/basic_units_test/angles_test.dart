@@ -49,7 +49,7 @@ void main() {
 
   group('testing Angle Units: converting', () {
     double degreeSame = 32.501245;
-    double radianSame = 0.567253736246;
+    double radianSame = 0.567253736247;
     int dmsDegSame = 32;
     int dmsMinSame = 30;
     double dmsSecSame = 4.482;
@@ -58,18 +58,13 @@ void main() {
       test('to Degree', () {
         final degree = AngleDegree(degreeSame);
         expect(degree.toDegree(), AngleDegree(degreeSame));
-        expect(degree.toDegree().value, degreeSame);
       });
       test('to DMS', () {
         final degree = AngleDegree(degreeSame);
         expect(degree.toDMS(), AngleDMS(dmsDegSame, dmsMinSame, dmsSecSame));
-        expect(degree.toDMS().degree, dmsDegSame);
-        expect(degree.toDMS().minute, dmsMinSame);
-        expect(degree.toDMS().second, dmsSecSame);
       });
       test('to Radian', () {
         final degree = AngleDegree(degreeSame);
-        expect(degree.toRadian().value, radianSame);
         expect(degree.toRadian(), AngleRadian(radianSame));
       });
     });

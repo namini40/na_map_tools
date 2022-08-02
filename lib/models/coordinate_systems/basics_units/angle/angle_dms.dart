@@ -1,3 +1,4 @@
+import '../../../constants.dart';
 import '../../coordinate_system_files.dart';
 
 class AngleDMS extends Angle {
@@ -66,7 +67,9 @@ class AngleDMS extends Angle {
           runtimeType == other.runtimeType &&
           degree == other.degree &&
           minute == other.minute &&
-          second == other.second;
+          second.toStringAsFixed(anglePrecisionComparisonForDMSSeconds) ==
+              other.second
+                  .toStringAsFixed(anglePrecisionComparisonForDMSSeconds);
 
   @override
   int get hashCode => degree.hashCode ^ minute.hashCode ^ second.hashCode;
