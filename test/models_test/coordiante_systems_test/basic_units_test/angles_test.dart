@@ -44,7 +44,7 @@ void main() {
       double radianRaw = 2.124587;
       final radian = AngleRadian(radianRaw);
 
-      expect(radian, radianRaw);
+      expect(radian.value, radianRaw);
     });
   });
 
@@ -84,6 +84,22 @@ void main() {
       test('to Radian', () {
         final dms = AngleDMS(deg: dmsDegSame, min: dmsMinSame, sec: dmsSecSame);
         expect(dms.toRadian(), AngleRadian(radianSame));
+      });
+    });
+
+    group('Radian', () {
+      test('to Degree', () {
+        final radian = AngleRadian(radianSame);
+        expect(radian.toDegree(), AngleDegree(degreeSame));
+      });
+      test('to DMS', () {
+        final radian = AngleRadian(radianSame);
+        expect(radian.toDMS(),
+            AngleDMS(deg: dmsDegSame, min: dmsMinSame, sec: dmsSecSame));
+      });
+      test('to Radian', () {
+        final radian = AngleRadian(radianSame);
+        expect(radian.toRadian(), AngleRadian(radianSame));
       });
     });
   });
