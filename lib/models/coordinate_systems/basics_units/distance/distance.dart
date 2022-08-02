@@ -38,6 +38,14 @@ class Distance extends Unit {
     return Distance.withType(value - other.to(_type).value, _type);
   }
 
+  Distance operator *(Distance other) {
+    return Distance.withType(value * other.to(_type).value, _type);
+  }
+
+  Distance operator /(Distance other) {
+    return Distance.withType(value / other.to(_type).value, _type);
+  }
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||

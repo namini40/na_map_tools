@@ -96,3 +96,7 @@ class AngleDegree extends Angle {
   @override
   int get hashCode => value.hashCode;
 }
+
+extension DegreeEx on double {
+  AngleDegree toAngleDegree() => AngleDegree(this);
+}
