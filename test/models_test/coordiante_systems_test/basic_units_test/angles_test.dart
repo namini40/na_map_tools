@@ -104,5 +104,24 @@ void main() {
     });
   });
 
-  group('testing Angle Units: add and subtract', () {});
+  group('testing Angle Units: add and subtract', () {
+    double deg1 = 32.501245;
+    double deg2 = 48.1458;
+    double rad1 = 0.567253736247;
+    double rad2 = 2.3654;
+    int dmsDeg1 = 32;
+    int dmsDeg2 = 36;
+    int dmsMin1 = 30;
+    int dmsMin2 = 58;
+    double dmsSec1 = 4.482;
+    double dmsSec2 = 29;
+
+    test('DMS - and + (for less than 360)', () {
+      var degree1 = AngleDegree(deg1);
+      var degree2 = AngleDegree(deg2);
+      var sum = degree1 + degree2 as AngleDegree;
+      expect(sum.value, deg1 + deg2);
+      expect(sum, AngleDegree(deg1 + deg2));
+    });
+  });
 }
