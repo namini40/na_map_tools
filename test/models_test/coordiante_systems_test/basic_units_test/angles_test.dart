@@ -116,12 +116,17 @@ void main() {
     double dmsSec1 = 4.482;
     double dmsSec2 = 29;
 
-    test('DMS - and + (for less than 360)', () {
-      var degree1 = AngleDegree(deg1);
-      var degree2 = AngleDegree(deg2);
-      var sum = degree1 + degree2 as AngleDegree;
+    test('Degree - and + (for less than 360)', () {
+      var degObj1 = AngleDegree(deg1);
+      var degObj2 = AngleDegree(deg2);
+      var sum = degObj1 + degObj2;
+      var sub = degObj2 - degObj1;
+
       expect(sum.value, deg1 + deg2);
       expect(sum, AngleDegree(deg1 + deg2));
+
+      expect(sub.value, deg2 - deg1);
+      expect(sub, AngleDegree(deg2 - deg1));
     });
   });
 }

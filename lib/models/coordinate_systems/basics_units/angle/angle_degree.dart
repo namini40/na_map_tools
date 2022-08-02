@@ -58,28 +58,27 @@ class AngleDegree extends Angle {
   }
 
   @override
-  Angle operator +(Angle other) {
+  AngleDegree operator +(Angle other) {
     final angleMain = this;
     final angleOther = other.toDegree();
-    angleMain.value = angleOther.value + angleMain.value;
-    if (angleMain.value > maxValue) {
-      angleMain.value %= maxValue;
+    double sum = angleOther.value + angleMain.value;
+    if (sum > maxValue) {
+      sum %= maxValue;
     }
-    return angleMain;
+    return AngleDegree(sum);
   }
 
   @override
-  Angle operator -(Angle other) {
-    final angleMain = this;
+  AngleDegree operator -(Angle other) {
     final angleOther = other.toDegree();
-    angleMain.value = angleOther.value - angleMain.value;
-    if (angleMain.value > maxValue) {
-      angleMain.value %= maxValue;
+    double sub = value - angleOther.value;
+    if (sub > maxValue) {
+      sub %= maxValue;
     }
-    while (angleMain.value < 0) {
-      angleMain.value += maxValue;
+    while (sub < 0) {
+      sub += maxValue;
     }
-    return angleMain;
+    return AngleDegree(sub);
   }
 
   @override
