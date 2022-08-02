@@ -33,7 +33,8 @@ void main() {
       int dmsRawDeg = 35;
       int dmsRawMinute = 12;
       double dmsRawSecond = 45.2;
-      final dms = AngleDMS(dmsRawDeg, dmsRawMinute, dmsRawSecond);
+      final dms =
+          AngleDMS(deg: dmsRawDeg, min: dmsRawMinute, sec: dmsRawSecond);
 
       expect(dms.degree, dmsRawDeg);
       expect(dms.minute, dmsRawMinute);
@@ -61,11 +62,28 @@ void main() {
       });
       test('to DMS', () {
         final degree = AngleDegree(degreeSame);
-        expect(degree.toDMS(), AngleDMS(dmsDegSame, dmsMinSame, dmsSecSame));
+        expect(degree.toDMS(),
+            AngleDMS(deg: dmsDegSame, min: dmsMinSame, sec: dmsSecSame));
       });
       test('to Radian', () {
         final degree = AngleDegree(degreeSame);
         expect(degree.toRadian(), AngleRadian(radianSame));
+      });
+    });
+
+    group('DMS', () {
+      test('to Degree', () {
+        final dms = AngleDMS(deg: dmsDegSame, min: dmsMinSame, sec: dmsSecSame);
+        expect(dms.toDegree(), AngleDegree(degreeSame));
+      });
+      test('to DMS', () {
+        final dms = AngleDMS(deg: dmsDegSame, min: dmsMinSame, sec: dmsSecSame);
+        expect(dms.toDMS(),
+            AngleDMS(deg: dmsDegSame, min: dmsMinSame, sec: dmsSecSame));
+      });
+      test('to Radian', () {
+        final dms = AngleDMS(deg: dmsDegSame, min: dmsMinSame, sec: dmsSecSame);
+        expect(dms.toRadian(), AngleRadian(radianSame));
       });
     });
   });

@@ -6,14 +6,14 @@ class AngleDMS extends Angle {
   int minute = 0;
   double second = 0;
 
-  AngleDMS(int deg, int min, double sec) {
+  AngleDMS({required int deg, required int min, required double sec}) {
     degree = deg;
     minute = min;
     second = sec;
   }
 
   factory AngleDMS.zero() {
-    return AngleDMS(0, 0, 0.0);
+    return AngleDMS(deg: 0, min: 0, sec: 0.0);
   }
 
   factory AngleDMS.from(Angle angle) {
