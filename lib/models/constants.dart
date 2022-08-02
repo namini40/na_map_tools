@@ -1,2 +1,2 @@
-const anglePrecisionComparison = 12;
+const anglePrecisionComparison = 10;
 const anglePrecisionComparisonForDMSSeconds = 3;

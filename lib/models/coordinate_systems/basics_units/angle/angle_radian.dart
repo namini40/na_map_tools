@@ -66,8 +66,7 @@ class AngleRadian extends Angle {
       identical(this, other) ||
       other is AngleRadian &&
           runtimeType == other.runtimeType &&
-          value.toStringAsFixed(anglePrecisionComparison) ==
-              other.value.toStringAsFixed(anglePrecisionComparison);
+          value - other.value < pow(10, -anglePrecisionComparison);
 
   @override
   int get hashCode => value.hashCode;

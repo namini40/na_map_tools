@@ -91,8 +91,7 @@ class AngleDegree extends Angle {
       identical(this, other) ||
       other is AngleDegree &&
           runtimeType == other.runtimeType &&
-          value.toStringAsPrecision(anglePrecisionComparison) ==
-              other.value.toStringAsPrecision(anglePrecisionComparison);
+          (value - other.value) < pow(10, -anglePrecisionComparison);
 
   @override
   int get hashCode => value.hashCode;

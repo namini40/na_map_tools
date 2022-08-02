@@ -1,6 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:na_map_tools/models/constants.dart';
-import 'package:na_map_tools/models/coordinate_systems/coordinate_system_files.dart';
+import 'package:na_map_tools/namaptools_lib.dart';
 
 void main() {
   group('testing Angle Units: object creation and APIs', () {
@@ -109,7 +111,7 @@ void main() {
     double deg1 = 32.501245;
     double deg2 = 48.1458;
 
-    double rad1 = 0.567253736247;
+    double rad1 = 0.5672537362;
     double rad2 = 2.3654;
 
     int dmsDeg1 = 32;
@@ -177,8 +179,8 @@ void main() {
       double sum = rad1 + rad2;
       double sub = rad2 - rad1;
 
-      expect(sumObj.value, sum);
-      expect(sum, AngleRadian(sum));
+      expect(sumObj.value - sum < pow(10, anglePrecisionComparison), true);
+      expect(sumObj, AngleRadian(sum));
 
       expect(subObj.value, sub);
       expect(subObj, AngleRadian(sub));
