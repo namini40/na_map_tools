@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:na_map_tools/models/constants.dart';
 import 'package:na_map_tools/models/coordinate_systems/coordinate_system_files.dart';
 
 void main() {
@@ -107,12 +108,16 @@ void main() {
   group('testing Angle Units: add and subtract', () {
     double deg1 = 32.501245;
     double deg2 = 48.1458;
+
     double rad1 = 0.567253736247;
     double rad2 = 2.3654;
+
     int dmsDeg1 = 32;
     int dmsDeg2 = 36;
+
     int dmsMin1 = 30;
     int dmsMin2 = 58;
+
     double dmsSec1 = 4.482;
     double dmsSec2 = 29;
 
@@ -127,6 +132,39 @@ void main() {
 
       expect(sub.value, deg2 - deg1);
       expect(sub, AngleDegree(deg2 - deg1));
+    });
+
+    test('DMS - and + (for less than 360)', () {
+      var dmsObj1 = AngleDMS(deg: dmsDeg1, min: dmsMin1, sec: dmsSec1);
+      var dmsObj2 = AngleDMS(deg: dmsDeg2, min: dmsMin2, sec: dmsSec2);
+
+      var dmsSumObj = dmsObj1 + dmsObj2;
+      var dmsSubObj = dmsObj2 - dmsObj1;
+
+      int dmsSumDeg = 69;
+      int dmsSumMin = 28;
+      double dmsSumSec = 33.482;
+      int dmsSubDeg = 4;
+      int dmsSubMin = 28;
+      double dmsSubSec = 24.518;
+
+      expect(dmsSumObj.degree, dmsSumDeg);
+      expect(dmsSumObj.minute, dmsSumMin);
+      expect(
+          dmsSumObj.second
+              .toStringAsFixed(anglePrecisionComparisonForDMSSeconds),
+          dmsSumSec.toStringAsFixed(anglePrecisionComparisonForDMSSeconds));
+      expect(
+          dmsSumObj, AngleDMS(deg: dmsSumDeg, min: dmsSumMin, sec: dmsSumSec));
+
+      expect(dmsSubObj.degree, dmsSubDeg);
+      expect(dmsSubObj.minute, dmsSubMin);
+      expect(
+          dmsSubObj.second
+              .toStringAsFixed(anglePrecisionComparisonForDMSSeconds),
+          dmsSubSec.toStringAsFixed(anglePrecisionComparisonForDMSSeconds));
+      expect(
+          dmsSubObj, AngleDMS(deg: dmsSubDeg, min: dmsSubMin, sec: dmsSubSec));
     });
   });
 }
