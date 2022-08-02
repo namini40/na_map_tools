@@ -166,5 +166,22 @@ void main() {
       expect(
           dmsSubObj, AngleDMS(deg: dmsSubDeg, min: dmsSubMin, sec: dmsSubSec));
     });
+
+    test('Radian - and + (for less than 360)', () {
+      var radObj1 = AngleRadian(rad1);
+      var radObj2 = AngleRadian(rad2);
+
+      var sumObj = radObj1 + radObj2;
+      var subObj = radObj2 - radObj1;
+
+      double sum = rad1 + rad2;
+      double sub = rad2 - rad1;
+
+      expect(sumObj.value, sum);
+      expect(sum, AngleRadian(sum));
+
+      expect(subObj.value, sub);
+      expect(subObj, AngleRadian(sub));
+    });
   });
 }
