@@ -79,4 +79,19 @@ class AngleDegree extends Angle {
     }
     return angleMain;
   }
+
+  @override
+  String toString() {
+    return 'AngleDegree{value: $value}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AngleDegree &&
+          runtimeType == other.runtimeType &&
+          value == other.value;
+
+  @override
+  int get hashCode => value.hashCode;
 }

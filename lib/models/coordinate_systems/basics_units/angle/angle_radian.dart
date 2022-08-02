@@ -53,4 +53,19 @@ class AngleRadian extends Angle {
     final degMinus = toDegree() - other.toDegree();
     return degMinus.toRadian();
   }
+
+  @override
+  String toString() {
+    return 'AngleRadian{value: $value}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AngleRadian &&
+          runtimeType == other.runtimeType &&
+          value == other.value;
+
+  @override
+  int get hashCode => value.hashCode;
 }

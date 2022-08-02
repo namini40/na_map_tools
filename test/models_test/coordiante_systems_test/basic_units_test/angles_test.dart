@@ -3,16 +3,9 @@ import 'package:na_map_tools/models/coordinate_systems/coordinate_system_files.d
 
 void main() {
   group('testing Angle Units: object creation and APIs', () {
-    double degreeRaw = 32.501245;
-    int dmsRawDeg = 35;
-    int dmsRawMinute = 12;
-    double dmsRawSecond = 45.2;
-    double radianRaw = 2.124587;
-
     test('Degree: zero constructor', () {
       var degreeZero = AngleDegree.zero();
 
-      print(degreeZero.value);
       expect(degreeZero.value, 0.0);
     });
 
@@ -30,20 +23,57 @@ void main() {
       expect(radianZero.value, 0.0);
     });
 
-    final deg = AngleDegree(degreeRaw);
-    final dms = AngleDMS(dmsRawDeg, dmsRawMinute, dmsRawSecond);
-    final radian = AngleRadian(radianRaw);
+    test('Degree: main constructor', () {
+      double degreeRaw = 32.501245;
+      final deg = AngleDegree(degreeRaw);
 
-    test('if values match what they are given', () {
       expect(deg.value, degreeRaw);
+    });
+    test('DMS: main constructor', () {
+      int dmsRawDeg = 35;
+      int dmsRawMinute = 12;
+      double dmsRawSecond = 45.2;
+      final dms = AngleDMS(dmsRawDeg, dmsRawMinute, dmsRawSecond);
+
       expect(dms.degree, dmsRawDeg);
       expect(dms.minute, dmsRawMinute);
       expect(dms.second, dmsRawSecond);
-      expect(radian.value, radianRaw);
+    });
+    test('Radian: main constructor', () {
+      double radianRaw = 2.124587;
+      final radian = AngleRadian(radianRaw);
+
+      expect(radian, radianRaw);
     });
   });
 
-  group('testing Angle Units: converting', () {});
+  group('testing Angle Units: converting', () {
+    double degreeSame = 32.501245;
+    double radianSame = 0.567253736246;
+    int dmsDegSame = 32;
+    int dmsMinSame = 30;
+    double dmsSecSame = 4.482;
+
+    group('Degree', () {
+      test('to Degree', () {
+        final degree = AngleDegree(degreeSame);
+        expect(degree.toDegree(), AngleDegree(degreeSame));
+        expect(degree.toDegree().value, degreeSame);
+      });
+      test('to DMS', () {
+        final degree = AngleDegree(degreeSame);
+        expect(degree.toDMS(), AngleDMS(dmsDegSame, dmsMinSame, dmsSecSame));
+        expect(degree.toDMS().degree, dmsDegSame);
+        expect(degree.toDMS().minute, dmsMinSame);
+        expect(degree.toDMS().second, dmsSecSame);
+      });
+      test('to Radian', () {
+        final degree = AngleDegree(degreeSame);
+        expect(degree.toRadian().value, radianSame);
+        expect(degree.toRadian(), AngleRadian(radianSame));
+      });
+    });
+  });
 
   group('testing Angle Units: add and subtract', () {});
 }

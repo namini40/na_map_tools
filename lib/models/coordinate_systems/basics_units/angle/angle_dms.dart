@@ -53,4 +53,21 @@ class AngleDMS extends Angle {
     final degMinus = toDegree() - other.toDegree();
     return degMinus.toDMS();
   }
+
+  @override
+  String toString() {
+    return 'AngleDMS{degree: $degree, minute: $minute, second: $second}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AngleDMS &&
+          runtimeType == other.runtimeType &&
+          degree == other.degree &&
+          minute == other.minute &&
+          second == other.second;
+
+  @override
+  int get hashCode => degree.hashCode ^ minute.hashCode ^ second.hashCode;
 }
