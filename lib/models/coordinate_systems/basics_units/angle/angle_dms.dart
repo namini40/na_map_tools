@@ -1,9 +1,9 @@
 import '../../coordinate_system_files.dart';
 
 class AngleDMS extends Angle {
-  late int degree;
-  late int minute;
-  late double second;
+  int degree = 0;
+  int minute = 0;
+  double second = 0;
 
   AngleDMS(int deg, int min, double sec) {
     degree = deg;
@@ -11,12 +11,12 @@ class AngleDMS extends Angle {
     second = sec;
   }
 
-  AngleDMS.zero() {
-    AngleDMS(0, 0, 0.0);
+  factory AngleDMS.zero() {
+    return AngleDMS(0, 0, 0.0);
   }
 
-  AngleDMS.from(Angle angle) {
-    angle.toDMS();
+  factory AngleDMS.from(Angle angle) {
+    return angle.toDMS();
   }
 
   @override

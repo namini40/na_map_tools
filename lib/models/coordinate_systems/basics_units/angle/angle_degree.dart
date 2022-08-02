@@ -3,19 +3,19 @@ import 'dart:math';
 import '../../coordinate_system_files.dart';
 
 class AngleDegree extends Angle {
-  late double value;
+  double value = 0.0;
   static const maxValue = 360.0;
 
   AngleDegree(double degree) {
     value = degree;
   }
 
-  AngleDegree.zero() {
-    AngleDegree(0.0);
+  factory AngleDegree.zero() {
+    return AngleDegree(0.0);
   }
 
-  AngleDegree.from(Angle angle) {
-    angle.toDegree();
+  factory AngleDegree.from(Angle angle) {
+    return angle.toDegree();
   }
 
   AngleDMS _toDMS() {

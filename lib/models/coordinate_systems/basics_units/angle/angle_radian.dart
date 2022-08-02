@@ -3,14 +3,14 @@ import 'dart:math';
 import '../../coordinate_system_files.dart';
 
 class AngleRadian extends Angle {
-  late double value;
+  double value = 0.0;
 
   AngleRadian(double radian) {
     value = radian;
   }
 
-  AngleRadian.zero() {
-    AngleRadian(0.0);
+  factory AngleRadian.zero() {
+    return AngleRadian(0.0);
   }
 
   AngleRadian.from(Angle angle) {
