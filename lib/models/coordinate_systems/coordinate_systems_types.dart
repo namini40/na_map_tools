@@ -1,1 +1,0 @@
-enum CoordinateSystemsType { wgs, utm }

@@ -1,4 +1,4 @@
-extension StringNumber on String {
+extension on String {
   double parseDouble() {
     return double.parse(this);
   }

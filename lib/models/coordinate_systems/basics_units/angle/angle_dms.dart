@@ -4,7 +4,7 @@ import 'package:na_map_tools/models/constants.dart';
 
 import '../../coordinate_system_files.dart';
 
-class AngleDMS extends Angle {
+class AngleDMS with Angle {
   int degree = 0;
   int minute = 0;
   double second = 0;

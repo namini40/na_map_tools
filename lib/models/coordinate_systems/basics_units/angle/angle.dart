@@ -1,6 +1,6 @@
 import '../../coordinate_system_files.dart';
 
-abstract class Angle extends Unit {
+mixin Angle {
   AngleDegree toDegree();
   AngleDMS toDMS();
   AngleRadian toRadian();

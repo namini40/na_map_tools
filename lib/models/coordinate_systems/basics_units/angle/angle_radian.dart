@@ -4,7 +4,7 @@ import 'package:na_map_tools/models/constants.dart';
 
 import '../../coordinate_system_files.dart';
 
-class AngleRadian extends Angle {
+class AngleRadian with Angle {
   double value = 0.0;
 
   AngleRadian(double radian) {

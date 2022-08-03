@@ -4,7 +4,7 @@ import 'package:na_map_tools/models/constants.dart';
 
 import '../../coordinate_system_files.dart';
 
-class AngleDegree extends Angle {
+class AngleDegree with Angle {
   double value = 0.0;
   static const maxValue = 360.0;
 
@@ -95,8 +95,4 @@ class AngleDegree extends Angle {
 
   @override
   int get hashCode => value.hashCode;
-}
-
-extension DegreeEx on double {
-  AngleDegree toAngleDegree() => AngleDegree(this);
 }
