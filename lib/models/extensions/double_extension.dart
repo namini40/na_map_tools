@@ -1,6 +1,5 @@
-import 'package:na_map_tools/namaptools_lib.dart';
+import '../basics_units/angle/angle.dart';
 
 extension on double {
-  AngleDegree toAngleDegree() => AngleDegree(this);
-  AngleRadian toAngleRadian() => AngleRadian(this);
+  Angle toAngleDegree() => Angle(this);
 }

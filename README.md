@@ -1,4 +1,4 @@
- <div style="width:100%; text-align:center"><img src="./docs/logo.png" alt="logo" width="200" height="200" ></div>
+ <div style="width:100%; text-align:center"><img src="./doc/logo.png" alt="logo" width="200" height="200" ></div>
  <p></p>
 
 ## introduction

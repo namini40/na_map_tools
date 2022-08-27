@@ -1,4 +1,4 @@
-import '../namaptools_lib.dart';
+import '../models/basics_units/distance/distance.dart';
 
 class ConstantValues {
   static final Map<DistanceTypes, double> Meter2TypeConvertTable = {

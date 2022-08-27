@@ -1,6 +1,7 @@
-import '../coordinate_systems/coordinate_system_files.dart';
-import '../features/features_files.dart';
+import 'package:na_map_tools/models/coordinates/na_coordinate.dart';
+
+import '../basics_units/distance/distance.dart';
 
 abstract class DistanceCalculator {
-  Distance euclideanDistance(Feature from, Feature to);
+  Distance euclideanDistance(NaCoordinate to);
 }

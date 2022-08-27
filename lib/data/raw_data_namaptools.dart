@@ -1,4 +1,4 @@
-String data = '''[
+String rawDataNaMapTools = '''[
 {
 "State": "اردبيل",
 "City": "اردبيل",
