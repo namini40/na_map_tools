@@ -1,3 +1,6 @@
+## 0.0.5
+* redesign classes 
+
 ## 0.0.4
 * remove `coordinate systems` features
 
