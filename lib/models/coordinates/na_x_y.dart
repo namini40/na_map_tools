@@ -3,8 +3,8 @@ import 'package:na_map_tools/models/coordinates/na_coordinate.dart';
 import 'package:na_map_tools/utils/na_calculator.dart';
 
 class NaXY extends NaCoordinate {
-  double X;
-  double Y;
+  Distance X;
+  Distance Y;
 
   NaXY({required this.X, required this.Y, String name = ''}) {
     this.name = name;
@@ -14,7 +14,8 @@ class NaXY extends NaCoordinate {
   Distance euclideanDistance(NaCoordinate to) {
     if (to is NaXY) {
       return Distance(
-        NaCalculator.euclideanDistance2D(this.X, this.Y, to.X, to.Y),
+        NaCalculator.euclideanDistance2D(
+            this.X.value, this.Y.value, to.X.value, to.Y.value),
       );
     } else {
       throw Exception(
