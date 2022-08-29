@@ -22,4 +22,16 @@ class NaXY extends NaCoordinate {
           '${to.runtimeType} is not subType of NaXY. make sure to use NaXY Type!');
     }
   }
+
+  NaXY operator +(NaXY other) {
+    X += other.X;
+    Y += other.Y;
+    return this;
+  }
+
+  NaXY operator -(NaXY other) {
+    X -= other.X;
+    Y -= other.Y;
+    return this;
+  }
 }
