@@ -24,4 +24,16 @@ class NaLatLong extends NaCoordinate {
           '${to.runtimeType} is not subType of NaLatLong! make sure to use NaLatLong Type!');
     }
   }
+
+  NaLatLong operator +(NaLatLong other) {
+    latitude += other.latitude;
+    longitude += other.longitude;
+    return this;
+  }
+
+  NaLatLong operator -(NaLatLong other) {
+    latitude -= other.latitude;
+    longitude -= other.longitude;
+    return this;
+  }
 }
