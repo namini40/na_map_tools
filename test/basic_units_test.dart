@@ -28,8 +28,6 @@ void main() {
     test('operator testing', () {
       var angle1 = Angle(rawAngleValue1);
       var angle2 = Angle(rawAngleValue2);
-      var angle3 = Angle(rawAngleValue3);
-      var angle4 = Angle(rawAngleValue4);
 
       // addition
       var actualSum = rawAngleValue1 + rawAngleValue2;
@@ -38,6 +36,44 @@ void main() {
       // subtract
       var actualSub = rawAngleValue1 - rawAngleValue2;
       expect(actualSub, (angle1 - angle2).value);
+    });
+
+    test('Angle dms assertion (value exceeded over 60 for minutes and seconds)',
+        () {
+      bool isAssertWorksFine = false;
+      // only minutes
+      try {
+        Angle.fromDMS(degree: 123, minutes: 89);
+      } on AssertionError {
+        isAssertWorksFine = true;
+      } on Exception {
+        isAssertWorksFine = false;
+      } finally {
+        expect(isAssertWorksFine, true);
+      }
+
+      // only seconds
+      try {
+        isAssertWorksFine = false;
+        Angle.fromDMS(degree: 123, seconds: 69);
+      } on AssertionError {
+        isAssertWorksFine = true;
+      } on Exception {
+        isAssertWorksFine = false;
+      } finally {
+        expect(isAssertWorksFine, true);
+      }
+
+      try {
+        isAssertWorksFine = false;
+        Angle.fromDMS(degree: 123, seconds: 69, minutes: 78);
+      } on AssertionError {
+        isAssertWorksFine = true;
+      } on Exception {
+        isAssertWorksFine = false;
+      } finally {
+        expect(isAssertWorksFine, true);
+      }
     });
   });
 }
