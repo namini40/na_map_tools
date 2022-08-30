@@ -8,8 +8,8 @@ class Angle {
 
   // building object from Degree, minutes and seconds
   Angle.fromDMS({int degree = 0, int minutes = 0, double seconds = 0.0})
-      : assert(minutes >= 60 && seconds >= 60) {
-    Angle(_dms2deg(degree, minutes, seconds));
+      : assert(minutes <= 60 && seconds <= 60) {
+    _value = _dms2deg(degree, minutes, seconds);
   }
 
   double get value => _value;
